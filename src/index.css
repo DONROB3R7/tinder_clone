@@ -8,6 +8,10 @@
   font-family: 'Readex Pro', sans-serif;
 }
 
+h2{
+  font-style: italic;
+}
+
 
 .primary-button {
   color: #fff;
@@ -25,6 +29,24 @@
   cursor: pointer;
 }
 
+.secondary-button {
+  color: rgb(121, 119, 119);
+  background-color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: solid 2px rgb(121, 119, 119);
+  margin: 6px;
+}
+
+.secondary-button:hover {
+  color: rgb(48,48,48);
+  border: solid 2px rgb(48,48,48);
+}
+
+
 body{
   text-align: center;
 }
@@ -33,3 +55,91 @@ body{
 
 
 /* Css NavBar Start */
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav .nav-button {
+  color: rgb(254, 48, 114);
+  background-color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+nav .nav-button:disabled {
+  background-color: rgb(181,180,180);
+  color: rgb(160,38,75);
+}
+
+
+nav .logo-container {
+  width: 170px;
+  margin: 15px;
+}
+
+nav .logo-container .logo{
+  width: 100%;
+}
+
+/* Css NavBar End */
+
+
+/* Css NavBar Start */
+
+/* Css Home Start */
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+), url('images/6e9794bcedeecf5a8f8f41338a2a7345.webp')
+}
+/* Css Home End */
+
+
+
+/* Css Auth Modal Start */
+
+
+
+.auth-modal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 360px;
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.auth-modal .close-icon {
+  float: right;
+}
+
+.auth-modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-modal form input[type=password],
+.auth-modal form input[type=email]
+ {
+  padding: 8px;
+  margin: 8px;
+  font-size: 17px;
+}
+
+
+/* Css Auth Modal End */
