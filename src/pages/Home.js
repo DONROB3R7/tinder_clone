@@ -32,7 +32,6 @@ export default function Home() {
                 {showModal && (
                     <AuthModel setShowModal={setShowModal} setIsSignUp={setIsSignUp} isSignUp={isSignUp} />
                 )}
-            
             </div>
         </div>
     </>
