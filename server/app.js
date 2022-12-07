@@ -29,6 +29,10 @@ mongoose.connect(dataBase, { useNewUrlParser: true, useUnifiedTopology: true }).
 
 mongoose.set('strictQuery', false);
 
+app.get('/', (req, res) => {
+    res.json('Hello to my app');
+})
+
 
 app.post('/signup' ,(req, res) => {
     // Getting the user from body
