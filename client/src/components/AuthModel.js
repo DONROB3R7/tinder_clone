@@ -26,9 +26,10 @@ export default function AuthModel( {setShowModal, isSignUp}) {
         setError('Password need to match!');
         return;
       }
-      
+
       const response  = await axois.post('http://localhost:3001/signup', {email , password})
       const success = response.status === 200;
+      console.log(response.status);
       if(success) navigate('/onboarding');
     } catch (error) {
       console.log(error);
