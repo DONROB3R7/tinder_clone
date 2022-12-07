@@ -1,19 +1,19 @@
 {
-  "name": "tinder_clone",
+  "name": "server",
   "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DONROB3R7/tinder_clone.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DONROB3R7/tinder_clone/issues"
-  },
-  "homepage": "https://github.com/DONROB3R7/tinder_clone#readme"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0",
+    "path": "^0.12.7"
+  }
 }
