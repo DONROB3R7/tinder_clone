@@ -215,10 +215,6 @@ nav .logo-container .logo{
 .onboaring form  input[type='submit']:active {
   background-color: rgb(226,115,155);
 }
-
-
-
-
 /* Css OnBoarding Page End */
 
 
@@ -226,6 +222,11 @@ nav .logo-container .logo{
 h2 {
   color: #fff;
 }
+
+.dashboard {
+  display: flex;
+}
+
 
 .swipe {
   position: absolute;

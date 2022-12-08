@@ -46,7 +46,7 @@ export default function Dashboard() {
 
   return (
     <div className='dashboard'> 
-      {/* <ChatContainer /> */}
+      <ChatContainer />
       <div className='swiper-container'>
         <div className='card-container'>
             <h1>React Tinder Card</h1>
@@ -58,6 +58,9 @@ export default function Dashboard() {
                       </div>
                     </TinderCard>
                   )}
+              <div className='swipe-info'>
+                    {lastDirection ? <p>You swipe {lastDirection}</p> : <p></p>}
+              </div>    
             </div>
         </div>
       </div>

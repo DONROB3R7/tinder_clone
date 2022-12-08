@@ -1,6 +1,6 @@
 import React from 'react';
 import TinderCard from 'react-tinder-card';
- 
+import ChatContainer from '../components/ChatContainer';
 
 import{ useState } from 'react'
 
@@ -46,7 +46,7 @@ export default function Dashboard() {
 
   return (
     <div className='dashboard'> 
-      {/* <ChatContainer /> */}
+      <ChatContainer />
       <div className='swiper-container'>
         <div className='card-container'>
             <h1>React Tinder Card</h1>
@@ -58,6 +58,9 @@ export default function Dashboard() {
                       </div>
                     </TinderCard>
                   )}
+            <div className="swipe-info">
+                {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}
+            </div>
             </div>
         </div>
       </div>
