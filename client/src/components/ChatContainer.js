@@ -1,5 +1,11 @@
 import React from 'react'
 
+
+// Import Components
+import ChatHeader from './ChatHeader';
+import MatchesDisplay from './MatchesDisplay';
+import ChatDisplay from './ChatDisplay';
+
 export default function ChatContainer() {
   return (
     <div className='chat-container'>

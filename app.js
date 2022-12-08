@@ -10,13 +10,16 @@ const app = express()
 const path = require("path");
 
 
+
+// Deploy Code from react build
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
-
+//Mongoose Fix Deprecation Error
+mongoose.set('strictQuery', true);
 
 require('dotenv').config()
 const dataUrl = process.env.MONGODB_URI
@@ -24,7 +27,6 @@ const dataUrl = process.env.MONGODB_URI
 console.log(dataUrl);
 
 // Middleware 
-
 app.use(cors())
 app.use(express.json())
 
@@ -39,9 +41,6 @@ mongoose.connect(dataBase, { useNewUrlParser: true, useUnifiedTopology: true }).
     (result) => console.log('DataBase Connected')
 ).catch((error)=> console.log(error));
 
-
-
-mongoose.set('strictQuery', false);
 
 app.get('/', (req, res) => {
     res.json('Hello to my app');

@@ -13,19 +13,19 @@ const characters = [
   },
   {
     name: 'Erlich Bachman',
-    url: 'https://i.imgur.com/Q9WPlWA.jpeg'
+    url: 'https://i.imgur.com/oPj4A8u.jpeg'
   },
   {
     name: 'Monica Hall',
-    url: 'https://i.imgur.com/Q9WPlWA.jpeg'
+    url: 'https://i.imgur.com/MWAcQRM.jpeg'
   },
   {
     name: 'Jared Dunn',
-    url: 'https://i.imgur.com/Q9WPlWA.jpeg'
+    url: 'https://i.imgur.com/wDmRJPc.jpeg'
   },
   {
     name: 'Dinesh Chugtai',
-    url: 'https://i.imgur.com/Q9WPlWA.jpeg'
+    url: 'https://i.imgur.com/OckVkRo.jpeg'
   }
 ]
 
