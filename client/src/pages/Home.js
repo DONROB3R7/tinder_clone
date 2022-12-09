@@ -4,6 +4,7 @@ import { useState } from 'react';
 // Import Nav Components/Nav
 import Nav from '../components/Nav'; 
 import AuthModel from  '../components/AuthModel';
+import Footer from '../components/Footer';
 
 
 export default function Home() {
@@ -33,7 +34,10 @@ export default function Home() {
                     <AuthModel setShowModal={setShowModal} isSignUp={isSignUp} />
                 )}
             </div>
+            <Footer />
         </div>
+
+        
     </>
   )
 }

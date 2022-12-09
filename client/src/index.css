@@ -394,3 +394,17 @@ h2 {
     flex-direction: column;
 }
 /* Css Chat Display Page End */
+
+
+/* Footer Links start */
+footer{
+  margin-top: 100px;
+}
+
+footer  ul  {
+  background-color: #fff;
+
+}
+
+/* Footer links End */
+
