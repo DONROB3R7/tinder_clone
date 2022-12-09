@@ -14,9 +14,9 @@ const path = require("path");
 // Deploy Code from react build
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-});
+// app.get("*", function (request, response) {
+//   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+// });
 
 //Mongoose Fix Deprecation Error
 mongoose.set('strictQuery', true);
