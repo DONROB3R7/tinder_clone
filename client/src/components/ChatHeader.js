@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Material Ui
+import LogoutIcon from '@mui/icons-material/Logout';
+
 export default function ChatHeader() {
   return (
     <>
@@ -10,7 +13,7 @@ export default function ChatHeader() {
                 </div>
                 <h3>Welcome Dinesh</h3>
             </div>
-            <i className="log-out-icon">⇦</i>
+            <i className="log-out-icon"><LogoutIcon/></i>
         </div>
     </>
   )

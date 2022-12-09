@@ -4,6 +4,8 @@ import { useState } from 'react'
 // Import Component 
 import Nav from '../components/Nav'
 
+// Material Ui
+import TextField from '@mui/material/TextField';
 
 export default function Onboarding() {
   const [formData, setFormData] = useState({
@@ -16,7 +18,7 @@ export default function Onboarding() {
     gender_identity:'man',
     gender_interest:'woman',
     email:'',
-    url:'',
+    url:'https://i.imgur.com/MWAcQRM.jpeg',
     about:'',
     matches:[]
   })
@@ -26,7 +28,7 @@ export default function Onboarding() {
   }
 
   const handleChange = (e) => {
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
     const name = e.target.name;
 
     setFormData((prevState) =>({
@@ -34,7 +36,6 @@ export default function Onboarding() {
       [name]: value
     }))
   }
-  console.log(formData);
   return (
    <>
       <Nav 
@@ -44,12 +45,13 @@ export default function Onboarding() {
           setIsSignUp={false}
       />
 
-      <div className='onboaring'>
+      <div className='onboarding'>
         <h2>Create Account</h2>
       <form onSubmit={handleSubmit}>
           <section>
               <label htmlFor='first_name'>First Name</label>
-              <input 
+    
+             <TextField 
                   id="first_name"
                   type="text"
                   name="first_name"
@@ -57,7 +59,8 @@ export default function Onboarding() {
                   required={true}
                   value={formData.first_name}
                   onChange={handleChange}
-              />
+                  label="First Name" 
+                variant="outlined" />
 
               <label>Birthday</label>
               <div className='multiple-input-container'>
@@ -69,6 +72,7 @@ export default function Onboarding() {
                     required={true}
                     value={formData.dob_day}
                     onChange={handleChange}
+                    min="1" max="31"
                 />
                 <input 
                     id="dob_month"
@@ -78,6 +82,7 @@ export default function Onboarding() {
                     required={true}
                     value={formData.dob_month}
                     onChange={handleChange}
+                    min="1" max="12"
                 />
                 <input 
                     id="dob_year"
@@ -87,6 +92,7 @@ export default function Onboarding() {
                     required={true}
                     value={formData.dob_year}
                     onChange={handleChange}
+                    min="1900" max="2004"
                 />
               </div>
 
@@ -131,9 +137,10 @@ export default function Onboarding() {
               <input 
                     id="show-gender"
                     type="checkbox"
-                    name="show-gender"
+                    name="show_gender"
                     onChange={handleChange}
-                    checked={false}
+                    checked={formData.show_gender}
+                    
               />
 
               <label>Show Me</label>

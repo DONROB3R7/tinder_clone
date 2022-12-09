@@ -2,8 +2,7 @@ import React from 'react';
 import TinderCard from 'react-tinder-card';
 import ChatContainer from '../components/ChatContainer';
 
-import{ useState } from 'react'
-
+import{ useState, useEffect  } from 'react'
 
 
 const characters = [
@@ -32,6 +31,25 @@ const characters = [
 
 
 export default function Dashboard() {
+
+  const [users, setUsers] = useState();
+
+  const [usersData, setUsersData] = useState();
+  const [Loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        fetch("http://localhost:3001/admincms")
+        .then((res) => res.json())
+        .then((data) => {
+            setUsersData(data);
+            setLoading(true);
+        });
+    }, []);
+
+
+    console.log(usersData);
+
+
   const [lastDirection, setLastDirection] = useState()
 
 
@@ -43,29 +61,37 @@ export default function Dashboard() {
   const outOfFrame = (name) => {
     console.log(name + ' left the screen!')
   }
-
-  return (
-    <div className='dashboard'> 
-      <ChatContainer />
-      <div className='swiper-container'>
-        <div className='card-container'>
-            <h1>React Tinder Card</h1>
-            <div className='cardContainer'>
-                  {characters.map((character) =>
-                    <TinderCard className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
-                      <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
-                        <h3>{character.name}</h3>
-                      </div>
-                    </TinderCard>
-                  )}
-            <div className="swipe-info">
-                {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}
+  if(Loading){
+      return (
+        <div className='dashboard'> 
+          <ChatContainer />
+          <div className='swiper-container'>
+            <div className='card-container'>
+                <h1>React Tinder Card</h1>
+                <div className='cardContainer'>
+                      {usersData.map((character) =>
+                        <TinderCard className='swipe' key={character.email} onSwipe={(dir) => swiped(dir, character.email)} onCardLeftScreen={() => outOfFrame(character.email)}>
+                          <div style={{ backgroundImage: 'url(' + character.imgLarge + ')' }} className='card'>
+                            <h3>{character.name}</h3>
+                          </div>
+                        </TinderCard>
+                      )}
+                <div className="swipe-info">
+                    {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}
+                </div>
+                </div>
             </div>
-            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  )
+      )
+  } else{
+    return(
+      <>
+        <h1>Loading</h1>
+      </>
+    )
+  }
+
 }
 
 
