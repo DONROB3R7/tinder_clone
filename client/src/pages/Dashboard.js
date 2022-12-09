@@ -42,6 +42,7 @@ export default function Dashboard() {
         .then((res) => res.json())
         .then((data) => {
             setUsersData(data);
+            console.log('here');
             setLoading(true);
         });
     }, []);
@@ -87,7 +88,7 @@ export default function Dashboard() {
   } else{
     return(
       <>
-        <h1>Loading</h1>
+        <h1>Loading Page</h1>
       </>
     )
   }
