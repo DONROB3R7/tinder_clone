@@ -7,12 +7,20 @@ const userSchema = new Schema({
   },
   imgLarge: {
     type: String,
-    required: true
   },
   password:{ 
     type: String,
     required: true
   },
+  gender: {
+    type: String,
+  },
+  firstName: {
+    type: String,
+  },
+  age:{
+    type:Number,
+  }
 },
   {
     timestamps: true

@@ -4,64 +4,41 @@ import ChatContainer from '../components/ChatContainer';
 
 import{ useState, useEffect  } from 'react'
 
-
-const characters = [
-  {
-    name: 'Richard Hendricks',
-    url: 'https://i.imgur.com/Q9WPlWA.jpeg'
-  },
-  {
-    name: 'Erlich Bachman',
-    url: 'https://i.imgur.com/oPj4A8u.jpeg'
-  },
-  {
-    name: 'Monica Hall',
-    url: 'https://i.imgur.com/MWAcQRM.jpeg'
-  },
-  {
-    name: 'Jared Dunn',
-    url: 'https://i.imgur.com/wDmRJPc.jpeg'
-  },
-  {
-    name: 'Dinesh Chugtai',
-    url: 'https://i.imgur.com/OckVkRo.jpeg'
-  }
-]
-
-
-
 export default function Dashboard() {
 
-  const [users, setUsers] = useState();
-
+  // Loading and DataCollected  
   const [usersData, setUsersData] = useState();
   const [Loading, setLoading] = useState(false);
+
+
+
+  
 
     useEffect(() => {
         fetch("http://localhost:3001/admincms")
         .then((res) => res.json())
         .then((data) => {
             setUsersData(data);
-            console.log('here');
             setLoading(true);
         });
     }, []);
 
+  const [lastDirection, setLastDirection] = useState();
 
-    console.log(usersData);
-
-
-  const [lastDirection, setLastDirection] = useState()
+  const [currentName, setCurrentName] = useState();
 
 
   const swiped = (direction, nameToDelete) => {
-    console.log('removing: ' + nameToDelete)
-    setLastDirection(direction)
+    console.log('removing: ' + nameToDelete);
+    setLastDirection(direction);
   }
   
+
+  
   const outOfFrame = (name) => {
-    console.log(name + ' left the screen!')
+    console.log(name + ' left the screen!');
   }
+
   if(Loading){
       return (
         <div className='dashboard'> 
@@ -73,7 +50,8 @@ export default function Dashboard() {
                       {usersData.map((character) =>
                         <TinderCard className='swipe' key={character.email} onSwipe={(dir) => swiped(dir, character.email)} onCardLeftScreen={() => outOfFrame(character.email)}>
                           <div style={{ backgroundImage: 'url(' + character.imgLarge + ')' }} className='card'>
-                            <h3>{character.name}</h3>
+                            <h3>{character.gender}</h3>
+                            <h3>{character.firstName}<span>{character.age}</span></h3>
                           </div>
                         </TinderCard>
                       )}
@@ -94,5 +72,3 @@ export default function Dashboard() {
   }
 
 }
-
-

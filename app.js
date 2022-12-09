@@ -68,7 +68,7 @@ app.post('/signup' ,(req, res) => {
 
 app.post('/addUsers' ,(req, res) => {
    
-    axios('https://randomuser.me/api/?results=10',{ 
+    axios('https://randomuser.me/api/?results=20',{ 
         headers: { "Accept-Encoding": "gzip,deflate,compress" } 
     })
     .then( data => {
@@ -76,7 +76,12 @@ app.post('/addUsers' ,(req, res) => {
        const emails = usersData.map(emails => emails.email);
        const passwords  = usersData.map(password => password.login.password);
        const largeImg =  usersData.map(password => password.picture.large);
-      
+       const gender = usersData.map(gender => gender.gender);
+       const firstName = usersData.map(name => name.name.first);
+       const age = usersData.map(age => age.dob.age); 
+
+
+       console.log(gender);
        const dataUser = [];
 
        for (let index = 0; index < emails.length; index++) {
@@ -84,12 +89,15 @@ app.post('/addUsers' ,(req, res) => {
         const x1 = emails[index];
         const x2 = passwords[index];
         const x3 = largeImg[index];
+        const x4 = gender[index];
+        const x5 = firstName[index];
+        const x6 = age[index];
 
         // Making a new object 
-        dataUser.push({email:x1 , password:x2, imgLarge:x3 })
+        dataUser.push({email:x1 , password:x2, imgLarge:x3, gender:x4, firstName:x5, age:x6 })
         
        }
-       console.log(dataUser);
+     
        // Insert Users
             User.insertMany(dataUser).then(function(){
                 console.log("Data inserted")  // Success
