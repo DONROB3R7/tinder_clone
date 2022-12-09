@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const PORT = 3001;
-const cors = require('cors');
-const app = express();
-const axios = require('axios');
+const cors = require('cors')
+const app = express()
+
 
 
 // Accessing the path module
@@ -12,11 +12,11 @@ const path = require("path");
 
 
 // Deploy Code from react build
-// app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
-// app.get("*", function (request, response) {
-//   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-// });
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 //Mongoose Fix Deprecation Error
 mongoose.set('strictQuery', true);
@@ -63,55 +63,6 @@ app.post('/signup' ,(req, res) => {
         .catch((err) => {
             console.log(err);
         }); 
-})
-
-
-app.post('/addUsers' ,(req, res) => {
-   
-    axios('https://randomuser.me/api/?results=10',{ 
-        headers: { "Accept-Encoding": "gzip,deflate,compress" } 
-    })
-    .then( data => {
-       const usersData = data.data.results;
-       const emails = usersData.map(emails => emails.email);
-       const passwords  = usersData.map(password => password.login.password);
-       const largeImg =  usersData.map(password => password.picture.large);
-      
-       const dataUser = [];
-
-       for (let index = 0; index < emails.length; index++) {
-
-        const x1 = emails[index];
-        const x2 = passwords[index];
-        const x3 = largeImg[index];
-
-        // Making a new object 
-        dataUser.push({email:x1 , password:x2, imgLarge:x3 })
-        
-       }
-       console.log(dataUser);
-       // Insert Users
-            User.insertMany(dataUser).then(function(){
-                console.log("Data inserted")  // Success
-                res.status(200).json('UserAdded');
-            }).catch(function(error){
-                console.log(error)      // Failure
-            });
-    })
-    .catch(error => console.error(error));
-
-   
-})
-
-
-// Admin Show Current Users
-app.get('/admincms', (req, res) => {
-    User.find({}).then(data => {
-        res.json(data);
-    }).catch( error => {
-        console.error(error);
-    })
-    
 })
 
 
