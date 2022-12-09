@@ -25,7 +25,7 @@ export default function AdminCms() {
 
     const handleSubmit = async (e) => {
     
-        const response  = await axios.post('http://localhost:3001/addUsers');
+        const response  = await axios.post('/addUsers');
         const success = response.status === 200;
         
         if(success) navigate('/admin-cms');
