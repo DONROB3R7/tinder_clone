@@ -28,7 +28,7 @@ export default function AdminCms() {
         const response  = await axios.post('/addUsers');
         const success = response.status === 200;
         
-        if(success) navigate('/admin-cms');
+        if(success) navigate('/dashboard');
     } 
       
         

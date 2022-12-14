@@ -15,7 +15,7 @@ export default function Dashboard() {
   
 
     useEffect(() => {
-        fetch("http://localhost:3001/admincms")
+        fetch("/admincms")
         .then((res) => res.json())
         .then((data) => {
             setUsersData(data);
