@@ -7,7 +7,7 @@ export default function Footer() {
                 <li><Link to="/">Home Page</Link></li>
                 <li><Link to="/dashboard">Dashboard</Link></li>
                 <li><Link to="/onboarding">Onboarding</Link></li>
-                <li><Link to="/users">Users</Link></li>
+                <li><Link to="/users">Userss</Link></li>
                 <li><Link to="/admin-cms">Admin-cms</Link></li>
              </ul>
         </footer>
